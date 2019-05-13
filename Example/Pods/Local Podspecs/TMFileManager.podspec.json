@@ -1,0 +1,22 @@
+{
+  "name": "TMFileManager",
+  "version": "0.1.0",
+  "summary": "A short description of TMFileManager.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ctinusDev/TMFileManager",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "TomyChen": "1158433594@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ctinusDev/TMFileManager.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "TMFileManager/Classes/**/*"
+}

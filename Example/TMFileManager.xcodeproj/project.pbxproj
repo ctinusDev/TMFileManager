@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		197AE50427411E108E9832C2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		197AE50427411E108E9832C2 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		3EB3F3EF2FE513E18D66B164 /* Pods-TMFileManager_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMFileManager_Example.debug.xcconfig"; path = "Target Support Files/Pods-TMFileManager_Example/Pods-TMFileManager_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		52466C12B2DB41387079A316 /* Pods_TMFileManager_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMFileManager_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* TMFileManager_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMFileManager_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,10 +62,10 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		88C27572AC37AC43B49E5C64 /* Pods-TMFileManager_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMFileManager_Example.release.xcconfig"; path = "Target Support Files/Pods-TMFileManager_Example/Pods-TMFileManager_Example.release.xcconfig"; sourceTree = "<group>"; };
-		8F484E77A70B6FB0547D7A2D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8F484E77A70B6FB0547D7A2D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		99F0A29EA2CA7A0AE5101456 /* Pods-TMFileManager_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMFileManager_Tests.release.xcconfig"; path = "Target Support Files/Pods-TMFileManager_Tests/Pods-TMFileManager_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		B118C713B6F91DAA9194801D /* Pods-TMFileManager_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMFileManager_Tests.debug.xcconfig"; path = "Target Support Files/Pods-TMFileManager_Tests/Pods-TMFileManager_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		D059F06F2581FFA2AF1AF095 /* TMFileManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = TMFileManager.podspec; path = ../TMFileManager.podspec; sourceTree = "<group>"; };
+		D059F06F2581FFA2AF1AF095 /* TMFileManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TMFileManager.podspec; path = ../TMFileManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ED899A09345A4B24F4647218 /* Pods_TMFileManager_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMFileManager_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -193,7 +193,6 @@
 				B118C713B6F91DAA9194801D /* Pods-TMFileManager_Tests.debug.xcconfig */,
 				99F0A29EA2CA7A0AE5101456 /* Pods-TMFileManager_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -348,12 +347,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TMFileManager_Example/Pods-TMFileManager_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/TMFileManager/TMFileManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TMFileManager.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,17 +21,20 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/TomyChen/TMFileManager'
+  s.homepage         = 'https://github.com/ctinusDev/TMFileManager'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'TomyChen' => 'tomychen@tencent.com' }
-  s.source           = { :git => 'https://github.com/TomyChen/TMFileManager.git', :tag => s.version.to_s }
+  s.author           = { 'TomyChen' => '1158433594@qq.com' }
+  s.source           = { :git => 'https://github.com/ctinusDev/TMFileManager.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'TMFileManager/Classes/**/*'
   
+  #s.subspec 'MTFileManager' do |ss|
+  #  ss.source_files = 'TMFileManager/Classes/MTFileManager/*'
+  #end
   # s.resource_bundles = {
   #   'TMFileManager' => ['TMFileManager/Assets/*.png']
   # }

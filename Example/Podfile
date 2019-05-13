@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 target 'TMFileManager_Example' do
   pod 'TMFileManager', :path => '../'
-
+  pod 'AFNetworking'
   target 'TMFileManager_Tests' do
     inherit! :search_paths
 
