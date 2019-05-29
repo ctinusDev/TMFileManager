@@ -23,8 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 ///@brief library路径
 + (NSString *)libraryDirectory;
 
+///@brief library路径
++ (NSString *)cachesDirectory;
+
 ///@brief 递归创建文件路径
-+ (BOOL)createDirectoryIfNeeded:(NSString *)dir;
++ (NSError *)createDirectoryIfNeeded:(NSString *)dir;
 
 ///@brief 安全地复制文件
 + (NSError *)copyItemAtPath:(NSString *)fromPath toPath:(NSString *)toPath;

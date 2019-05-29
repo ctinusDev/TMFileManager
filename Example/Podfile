@@ -5,8 +5,7 @@ use_frameworks!
 platform :ios, '8.0'
 
 target 'TMFileManager_Example' do
-  pod 'TMFileManager'
-  pod 'AFNetworking'
+  pod 'TMFileManager', :path => '../'
   target 'TMFileManager_Tests' do
     inherit! :search_paths
 

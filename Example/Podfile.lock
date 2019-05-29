@@ -1,35 +1,16 @@
 PODS:
-  - AFNetworking (3.2.1):
-    - AFNetworking/NSURLSession (= 3.2.1)
-    - AFNetworking/Reachability (= 3.2.1)
-    - AFNetworking/Security (= 3.2.1)
-    - AFNetworking/Serialization (= 3.2.1)
-    - AFNetworking/UIKit (= 3.2.1)
-  - AFNetworking/NSURLSession (3.2.1):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.2.1)
-  - AFNetworking/Security (3.2.1)
-  - AFNetworking/Serialization (3.2.1)
-  - AFNetworking/UIKit (3.2.1):
-    - AFNetworking/NSURLSession
   - TMFileManager (0.1.2)
 
 DEPENDENCIES:
-  - AFNetworking
-  - TMFileManager
+  - TMFileManager (from `../`)
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - AFNetworking
-  https://github.com/ctinusDev/Specs.git:
-    - TMFileManager
+EXTERNAL SOURCES:
+  TMFileManager:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  TMFileManager: 6386ac90e137ab26cf6595c0c9a905832ab33eb3
+  TMFileManager: a94d4fed54064ee903575f638ffc0aba41475735
 
-PODFILE CHECKSUM: e0dfaf3e15d0185ca0ec53e2e669553f0cb2eb70
+PODFILE CHECKSUM: 553abbc8879726207f156fa8fac441b1fe71e5ab
 
 COCOAPODS: 1.6.1

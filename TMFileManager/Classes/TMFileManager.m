@@ -9,17 +9,15 @@
 
 @implementation TMFileManager
 
-+ (NSString *)homeDirectory
-{
++ (NSString *)homeDirectory {
     return NSHomeDirectory();
 }
 
-+ (NSString *)temporaryDirectory{
++ (NSString *)temporaryDirectory {
     return NSTemporaryDirectory();
 }
 
-+ (NSString *)documentDirectory
-{
++ (NSString *)documentDirectory {
     static NSString * docPath = nil;
     if (docPath == nil)
     {
@@ -33,15 +31,19 @@
     return docPath;
 }
 
-+ (NSString *)libraryDirectory
-{
++ (NSString *)libraryDirectory {
     return [NSHomeDirectory() stringByAppendingPathComponent:@"Library"];
 }
 
++ (NSString *)cachesDirectory {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cacheDir = paths.firstObject;
+    return cacheDir;
+}
 
-+ (BOOL)createDirectoryIfNeeded:(NSString *)dir
-{
-    if ([[NSFileManager defaultManager] fileExistsAtPath:dir] == NO)
+
++ (NSError *)createDirectoryIfNeeded:(NSString *)dir {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dir])
     {
         NSError *error;
         if ([[NSFileManager defaultManager] createDirectoryAtPath:dir withIntermediateDirectories:YES attributes:nil error:&error])
@@ -51,14 +53,13 @@
         else
         {
             NSLog(@"[File] check and create dir failed! dir: %@,\r error: %@", dir, (error ? : @"unknown"));
-            return NO;
+            return error;
         }
     }
-    return YES;
+    return nil;
 }
 
-+ (NSError *)copyItemAtPath:(NSString *)fromPath toPath:(NSString *)toPath
-{
++ (NSError *)copyItemAtPath:(NSString *)fromPath toPath:(NSString *)toPath {
     NSError *error;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
@@ -73,7 +74,7 @@
         return [NSError errorWithDomain:@"file of fromPath or toPath is null" code:-1 userInfo:nil];
     }
     
-    if ([fileManager fileExistsAtPath:fromPath] == NO)
+    if (![fileManager fileExistsAtPath:fromPath])
     {
         NSLog(@"[FileManager] copy file failed! file of fromPath doesn't exist, fromPath = %@", fromPath);
         return error ? : [NSError errorWithDomain:@"file of fromPath doesn't exist" code:-1 userInfo:nil];
@@ -81,14 +82,14 @@
     
     if ([fileManager fileExistsAtPath:toPath])
     {
-        if ([fileManager removeItemAtPath:toPath error:&error] == NO)
+        if (![fileManager removeItemAtPath:toPath error:&error])
         {
             NSLog(@"[FileManager] copy file failed! remove file of toPath failed, error = %@", error);
             return error ? : [NSError errorWithDomain:@"remove file of toPath failed" code:-1 userInfo:nil];
         }
     }
     
-    if ([fileManager copyItemAtPath:fromPath toPath:toPath error:&error] == NO)
+    if (![fileManager copyItemAtPath:fromPath toPath:toPath error:&error])
     {
         NSLog(@"[FileManager] copy file failed! error = %@", error);
         return error ? : [NSError errorWithDomain:@"copy file failed" code:-1 userInfo:nil];
@@ -113,7 +114,7 @@
         return [NSError errorWithDomain:@"file of fromPath or toPath is null" code:-1 userInfo:nil];
     }
     
-    if ([fileManager fileExistsAtPath:fromPath] == NO)
+    if (![fileManager fileExistsAtPath:fromPath])
     {
         NSLog(@"[FileManager] move file failed! file of fromPath doesn't exist, fromPath = %@", fromPath);
         return [NSError errorWithDomain:@"file of fromPath doesn't exist" code:-1 userInfo:nil];
@@ -121,14 +122,14 @@
     
     if ([fileManager fileExistsAtPath:toPath])
     {
-        if ([fileManager removeItemAtPath:toPath error:&error] == NO)
+        if (![fileManager removeItemAtPath:toPath error:&error])
         {
             NSLog(@"[FileManager] move file failed! remove file of toPath failed, error = %@", error);
             return error ? : [NSError errorWithDomain:@"remove file of toPath failed" code:-1 userInfo:nil];
         }
     }
     
-    if ([fileManager moveItemAtPath:fromPath toPath:toPath error:&error] == NO)
+    if (![fileManager moveItemAtPath:fromPath toPath:toPath error:&error])
     {
         NSLog(@"[FileManager] move file failed! error = %@", error);
         return error ? : [NSError errorWithDomain:@"move file failed" code:-1 userInfo:nil];
@@ -137,8 +138,7 @@
     return nil;
 }
 
-+ (void)removeAllContentsOfDirectory:(NSString *)dir
-{
++ (void)removeAllContentsOfDirectory:(NSString *)dir {
     NSError *error;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
@@ -152,15 +152,14 @@
     for (NSString *file in files)
     {
         NSString *path = [dir stringByAppendingPathComponent:file];
-        if ([fileManager removeItemAtPath:path error:&error])
+        if (![fileManager removeItemAtPath:path error:&error])
         {
             NSLog(@"[FileManager] delete file failed! path = %@", path);
         }
     }
 }
 
-+ (unsigned long long)fileSizeOfItemAtPath:(NSString *)path
-{
++ (unsigned long long)fileSizeOfItemAtPath:(NSString *)path {
     NSDictionary *dict = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
     return dict ? [dict fileSize] : 0;
 }
